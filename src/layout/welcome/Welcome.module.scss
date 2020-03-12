@@ -1,10 +1,92 @@
+$welcomebg: #003662;
+$innerBg: #000E18;
+$white: #ffffff;
+
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+  position: relative;
+  
+  background-color: $welcomebg;
+}
 
-  background-color: #1a1a5b;
+.indents {
+  position: relative;
+  z-index: 2;
 
-  * {
-    color: white;
+  padding: {
+    left: 100px;
+    right: 100px;
   }
 }
+
+.outer {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 80vh;
+  max-height: 80vh;
+
+  background: {
+    position: 50%;
+    size: cover;
+    repeat: no-repeat;
+    image: url('./images/fish.png');
+  }
+}
+.inner {
+  background-color: rgba($innerBg, .9);
+  backdrop-filter: blur(3px);
+}
+
+.image {
+  display: block;
+  line-height: 1;
+  max-width: 80vw;
+  max-height: 80vh;
+  margin: auto;
+  object-fit: contain;
+}
+
+.logo {
+  position: relative;
+  text-align: center;
+  
+  &__pre,
+  &__post {
+    position: absolute;
+    top: 50%; left: 50%;
+
+    transform: translate(-50%, -50%);
+  }
+
+  &__pre,
+  &__post {
+    text-transform: uppercase;
+    font-size: 8rem !important;
+    font-weight: 500 !important;
+  }
+  &__pre  {
+    z-index: 1;
+    color: $white;
+  }
+  &__post {
+    z-index: 3;
+    color: rgba($white, .1);
+
+  // -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: $white;
+  }
+
+  &__image {
+    position: relative;
+    z-index: 2;
+  }
+}
+
