@@ -5,8 +5,10 @@ import {
 } from '@material-ui/core';
 import css from './Welcome.module.scss';
 import img from './images/fish.png';
+import { useTranslation } from 'react-i18next';
 
 const Logo = () => {
+  const { t } = useTranslation();
   return (
     <Box component="div" className={css.logo} flexGrow={1}>
       <Typography
@@ -15,7 +17,7 @@ const Logo = () => {
         classes={{root: 'logo-heading'}}
         className={css.logo__pre}
       >
-        Ryoshi
+        {t('mainHeading')}
       </Typography>
       <img className={css.logo__image} src={img} alt="Ryoshi" />
       <Typography
@@ -24,46 +26,51 @@ const Logo = () => {
         classes={{root: 'logo-heading'}}
         className={css.logo__post}
       >
-        Ryoshi
+        {t('mainHeading')}
       </Typography>
     </Box>
   )
 };
 
-export const Welcome = () => <Box className={css.container}>
-  <Box className={css.indents}>
-    <Box
-      component="div"
-      className={css.outer}
-      boxShadow={10}
-    >
-      <Box
-        className={css.inner}
-        display="flex"
-        flexDirection="column"
-        flexGrow={1}
-      >
+export const Welcome = () => {
+  const { t } = useTranslation();
+  return (
+    <Box className={css.container}>
+      <Box className={css.indents}>
         <Box
-          display="flex"
-          flexDirection="column"
-          flexGrow={1}
+          component="div"
+          className={css.outer}
+          boxShadow={10}
         >
-          <Box component="header">
-            header
-          </Box>
           <Box
-            component="div"
+            className={css.inner}
             display="flex"
-            alignItems="center"
+            flexDirection="column"
             flexGrow={1}
           >
-            <Logo />
-          </Box>
-          <Box component="footer">
-            footer
+            <Box
+              display="flex"
+              flexDirection="column"
+              flexGrow={1}
+            >
+              <Box component="header">
+                {t('button.signIn')}
+              </Box>
+              <Box
+                component="div"
+                display="flex"
+                alignItems="center"
+                flexGrow={1}
+              >
+                <Logo />
+              </Box>
+              <Box component="footer">
+                footer
+              </Box>
+            </Box>
           </Box>
         </Box>
       </Box>
     </Box>
-  </Box>
-</Box>;
+  )
+}
