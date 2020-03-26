@@ -1,0 +1,11 @@
+{
+  "mainHeading": "Ryoshi",
+  "button": {
+    "lang": {
+      "ua": "ua",
+      "en": "en"
+    },
+    "signIn": "Увійти",
+    "signUp": "Зареєструватись"
+  }
+}
