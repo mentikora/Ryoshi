@@ -11,18 +11,18 @@ import './scss/app.scss';
 function App() {
   return (
     <>
-      <Header />
-      <main className="App">
-        <Router>
+      <Router>
+        <Header />
+        <main className="App">
           <Route exact path="/">
             <Homepage />
           </Route>
           <Route exact path="/auth">
             <Authorization />
           </Route>
-        </Router>
-      </main>
-      <Footer />
+        </main>
+        <Footer />
+      </Router>
     </>
   );
 }
