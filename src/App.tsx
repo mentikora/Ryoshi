@@ -1,15 +1,29 @@
 import React from 'react';
-import { Welcome } from 'layout';
+import {
+  BrowserRouter as Router,
+  // Switch,
+  Route,
+} from "react-router-dom";
+import { Homepage, Authorization } from 'views';
 import { Header, Footer } from 'components';
 import './scss/app.scss';
 
 function App() {
   return (
-    <main className="App">
+    <>
       <Header />
-      <Welcome />
+      <main className="App">
+        <Router>
+          <Route exact path="/">
+            <Homepage />
+          </Route>
+          <Route exact path="/auth">
+            <Authorization />
+          </Route>
+        </Router>
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
 
