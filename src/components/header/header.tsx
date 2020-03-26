@@ -13,10 +13,6 @@ export const Header = () => {
     <Box component="header">
       <Button size="small" onClick={() => changeLanguage('ua')}>{t('button.lang.ua')}</Button>
       <Button size="small" onClick={() => changeLanguage('en')}>{t('button.lang.en')}</Button>
-      <div className="auth">
-        <Button>{t('button.signUp')}</Button>
-        <Button>{t('button.signIn')}</Button>
-      </div>
     </Box>
   )
 };

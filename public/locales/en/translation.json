@@ -1,6 +1,7 @@
 {
   "mainHeading": "Ryoshi",
   "button": {
+    "submit": "Submit",
     "lang": {
       "ua": "ua",
       "en": "en"
