@@ -8,5 +8,8 @@
     },
     "signIn": "sign in",
     "signUp": "sign up"
+  },
+  "header": {
+    "auth": "Auth"
   }
 }

@@ -1,7 +1,12 @@
 import React from 'react';
-import { Box, Button } from '@material-ui/core';
+import {
+  Box,
+  Button,
+  Grid,
+} from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
+import { route } from 'route';
 
 export const Header = () => {
   const { t, i18n } = useTranslation();
@@ -11,10 +16,19 @@ export const Header = () => {
   }
 
   return (
-    <Box component="header">
-      <Button size="small" onClick={() => changeLanguage('ua')}>{t('button.lang.ua')}</Button>
-      <Button size="small" onClick={() => changeLanguage('en')}>{t('button.lang.en')}</Button>
-      <Button size="small" component={RouterLink} to="/">123</Button>
+    <Box component="header" p={2}>
+      <Grid container justify="flex-end">
+        <Button size="small" onClick={() => changeLanguage('ua')}>{t('button.lang.ua')}</Button>
+        <Button size="small" onClick={() => changeLanguage('en')}>{t('button.lang.en')}</Button>
+        <Button
+          component={RouterLink}
+          to={route.auth}
+          variant="contained"
+          color="primary"
+        >
+          {t('header.auth')}
+        </Button>
+      </Grid>
     </Box>
   )
 };
