@@ -1,5 +1,6 @@
 {
   "mainHeading": "Ryoshi",
+
   "button": {
     "submit": "Submit",
     "lang": {
@@ -9,7 +10,15 @@
     "signIn": "sign in",
     "signUp": "sign up"
   },
+
+  "form": {
+    "email": "E-mail",
+    "password": "Password",
+    "repeatPassword": "Repeat password"
+  },
+
   "header": {
     "auth": "Auth"
   }
+
 }

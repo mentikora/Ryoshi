@@ -9,8 +9,9 @@ import {
   Box
 } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
-import { FormContainer } from 'components';
 import css from './Authorization.module.scss';
+import { SignUp } from './signUp';
+import { SignIn } from './signIn';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -43,43 +44,46 @@ export const Authorization = () => {
 
   const { t } = useTranslation();
 
-  const onSignUp = () => console.log('sign up');
+  const onSignUp = (values) => console.log(values);
 
-  const onSignIn = () => console.log('sign in');
+  const onSignIn = (values) => console.log(values);
 
   return (
     <Box display="flex" flex={1}>
-    <Container maxWidth="md" className={css.container}>
-      <Box boxShadow={3}>
-        <Grid container>
-          <Grid item xs={4}>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              indicatorColor="primary"
-              textColor="primary"
-              centered
-            >
-              <Tab label={t('button.signUp')} />
-              <Tab label={t('button.signIn')} />
-            </Tabs>
-            <TabPanel value={value} index={0}>
-              <FormContainer onSubmit={() => onSignUp()}>
-                signUp
-              </FormContainer>
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-              <FormContainer onSubmit={() => onSignIn()}>
-                signIn
-              </FormContainer>
-            </TabPanel>
+      <Container maxWidth="lg" className={css.container}>
+        <Box boxShadow={3}>
+          <Grid container>
+            <Grid item xs={4}>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                TabIndicatorProps={{
+                  style: {
+                    backgroundColor: 'transparent'
+                  }
+                }}
+                textColor="primary"
+                centered
+              >
+                <Tab label={t('button.signUp')} />
+                <Tab label={t('button.signIn')} />
+              </Tabs>
+              <TabPanel value={value} index={0}>
+                <Box p={2}>
+                  via google or facebook
+                </Box>
+                <SignUp onSubmit={onSignUp} />
+              </TabPanel>
+              <TabPanel value={value} index={1}>
+                <SignIn onSubmit={onSignIn} />
+              </TabPanel>
+            </Grid>
+            <Grid item xs={8}>
+              <Box className={css.sideBackground}/>
+            </Grid>
           </Grid>
-          <Grid item xs={8}>
-            <Box className={css.sideBackground}/>
-          </Grid>
-        </Grid>
-      </Box>
-    </Container>
+        </Box>
+      </Container>
     </Box>
   )
 };
